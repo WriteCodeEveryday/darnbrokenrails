@@ -15,6 +15,5 @@
 /log/*.log
 /tmp
 
-# XXX These should removed during development
-Gemfile
+# XXX This should removed during development
 Gemfile.lock
