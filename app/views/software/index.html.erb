@@ -1,13 +1,69 @@
 <h2>Software List</h2>
 <script>
   var attributes = <%= attrs.to_json %>
-  // XXX This code violates the "Cross Site Scripting (JSON)" portion of Brakeman.
-  //This section may cause a vulnerability if ActiveSupport is incorrectly configured.
-  //You may find the documentation relating to this below.
-  //Source: http://brakemanscanner.org/docs/warning_types/cross_site_scripting_to_json/
 </script>
+<!-- XXX This code violates the "Cross Site Scripting (JSON)" portion of Brakeman.
+This section may cause a vulnerability if ActiveSupport is incorrectly configured.
+You may find the documentation relating to this below.
+Source: http://brakemanscanner.org/docs/warning_types/cross_site_scripting_to_json/ -->
+
 <%= content_tag :p, "User ID: #{params[:user_id]} @ #{timestamp}" %>
 <!-- XXX This code violates the "Cross Site Scripting (Content Tag)" portion of Brakeman.
 This section uses a dangerous parameter from the internet in a content call.
 You may find the documentation relating to this below.
 Source: http://brakemanscanner.org/docs/warning_types/content_tag/ -->
+
+<% if expired %>
+  <h3>Expired</h3>
+  <% expired.find_each do |item| %>
+    <div>
+      <%= render :partial => 'software/core' %>
+      <%= link_to "Edit", [:edit, item] %>
+    </div>
+  <% end %>
+<% end %>
+<!-- XXX This section (and below / above) uses a non-delegated call to purchaser.name,
+This kind of access should be done through a delegate method
+Additionally, this allows you to not have an error on a nil purchaser.
+Source: https://rails-bestpractices.com/posts/2010/07/24/the-law-of-demeter/ -->
+
+<% if expiring %>
+  <h3>Expiring</h3>
+  <% expiring.find_each do |item| %>
+    <div>
+      <%= render :partial => 'software/core' %>
+      <%= link_to "Edit", [:edit, item] %>
+    </div>
+  <% end %>
+<% end %>
+<!-- XXX This section (and below / above) print a DateTime from the database using .to_s.
+It is recommended to do I18n.localize to ensure people from anywhere in the world can use your software
+Source: https://rails-bestpractices.com/posts/2010/08/06/use-i18n-localize-for-date-time-formating/ -->
+
+<% if renewed %>
+  <h3>Renewed</h3>
+  <% renewed.find_each do |item| %>
+    <div>
+      <%= render :partial => 'software/core' %>
+      <%= link_to "Edit", [:edit, item] %>
+    </div>
+  <% end %>
+<% end %>
+<!-- XXX This section (and below / above) use partials, which should be simplified.
+Additionally, these should also be cached as collection caches.
+Source: https://rails-bestpractices.com/posts/2010/12/04/simplify-render-in-views/
+Source: http://guides.rubyonrails.org/caching_with_rails.html#collection-caching -->
+
+<h3>All Software</h3>
+<%= link_to "New", :new %>
+<% software.each do |item| %>
+  <div>
+    <%= render :partial => 'software/core' %>
+    <span><strong>Access: </strong> <%= item.cloud ? item.login_link : "Local" %></span>
+    <%= link_to "Edit", [:edit, item] %>
+  </div>
+<% end %>
+<!-- XXX This section uses a non-batched ActiveRecord iteration,
+this will cause pain as your software gets larger.
+Additionally, it makes an N+1 query on purchaser (check controller).
+Source: https://rails-bestpractices.com/posts/2010/09/09/use-batched-finder-for-large-data-query/ -->

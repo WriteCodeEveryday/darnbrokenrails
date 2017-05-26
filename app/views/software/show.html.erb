@@ -1,5 +1,5 @@
 <h2>Software Details</h2>
-<p><%= "User ID: #{current_user.id} @ #{timestamp}" %></p>
+<p><%= "Timestamp: #{timestamp}" %></p>
 Software ID: <%= raw params[:id] %>
 <!-- XXX This code violates the "Cross Site Scripting" portion of Brakeman.
 This section uses a dangerous parameter from the internet in a raw call.
@@ -7,3 +7,5 @@ You may find the documentation relating to this below.
 Source: http://brakemanscanner.org/docs/warning_types/cross_site_scripting/ -->
 Software Name: <%= software.name %>
 Software Price: $<%= software.price %>
+Software Expiration: <%= software.expiration.to_s %>
+Software Purchaser: <%= software.purchaser.name %>

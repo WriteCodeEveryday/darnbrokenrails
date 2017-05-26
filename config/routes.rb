@@ -1,6 +1,10 @@
 Darnbrokenrails::Application.routes.draw do
   root 'software#index'
   resources :softwares
+  # XXX The softwares routes have not been properly restricted, using ":only" can 
+  # be used to ensure noone can just delete your super critical data.
+  # Source: https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/
+  
   get '/software/unathorized' => 'software#unathorized'
   post '/software/execute' => 'software#execute_method'
   post '/software/upload' => 'software#upload_new_software_file'

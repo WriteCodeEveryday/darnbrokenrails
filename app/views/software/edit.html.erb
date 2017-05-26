@@ -1,1 +1,23 @@
 <h2>Edit Software</h2>
+<%= link_to "Back", :index %>
+<%= form_for @software do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+  <p>Name should end in "- Yearly" or "- Monthly"</p>
+  
+  <%= f.label :price %>:
+  <%= f.text_field :price %>
+  <p>All prices should be in pennies</p>
+  
+  <%= f.label :expiration_date %>:
+  <%= f.date_field :expiration_date %>
+  
+  <p> This section is for cloud products </p>
+  <%= f.label :cloud %>:
+  <%= f.check_box :cloud %>
+  
+  <%= f.label :login_link %>:
+  <%= f.text_field :login_link %>
+  
+  <%= f.submit %>
+<% end %>

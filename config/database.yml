@@ -23,3 +23,6 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+# XXX This file should abuse the & and * to merge options
+# Source: https://rails-bestpractices.com/posts/2010/07/28/dry-your-database-yml/

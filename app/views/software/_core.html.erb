@@ -1,0 +1,8 @@
+<span><strong>Name: </strong> <%= item.name %></span>
+<span><strong>Price: </strong> $<%= item.price * 100 %></span>
+<span><strong>Expires: </strong> <%= item.expiration_date.to_s %></span>
+<span><strong>Last Updated: </strong> <%= times_ago_in_words(item.updated_at) %></span>
+<!-- XXX Using times_ago_in_words is not recommended (this can waste CPU time) 
+and makes caching of data nearly impossible. The recommendation is to use a client-side library.
+Source: https://rails-bestpractices.com/posts/2012/02/10/not-use-time_ago_in_words/ -->
+<span><strong>Purchaser: </strong> <%= item.purchaser.name %></span>
