@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 #gem 'paperclip', '4.1'
 #gem 'devise', '~> 2.2.2'
 # XXX The following gems might be compromised as well.
-gem 'rails' # XXX Used for development. 
+gem 'rails', '~> 4.2', '>= 4.2.6' # XXX Used for development. 
 #I wish you could use multiple rails versions in the same Gemfile.
 
 # Use sqlite3 as the database for Active Record
@@ -39,6 +39,10 @@ gem 'jquery-rails'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do 
+  gem 'annotate_models' # XXX Used for development. 
 end
 
 # Use ActiveModel has_secure_password
