@@ -19,5 +19,10 @@ module Darnbrokenrails
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.active_support.escape_html_entities_in_json = false
+    # XXX This code violates the "Cross Site Scripting (JSON)" portion of Brakeman.
+    #This section allows a JSON formatted item to cause a cross-site scripting issue.
+    #You may find the documentation relating to this below.
+    #Source: http://brakemanscanner.org/docs/warning_types/cross_site_scripting_to_json/ -->
   end
 end

@@ -1,0 +1,2 @@
+class CloudSoftware < Software
+end

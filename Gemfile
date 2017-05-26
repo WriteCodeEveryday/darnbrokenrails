@@ -1,27 +1,27 @@
 source 'https://rubygems.org'
 
 # XXX The following gems are known to have CVEs.
-gem 'rails', '3.2.22.5'
-gem 'paperclip', '4.1'
-gem 'devise', '~> 2.2.2'
+#gem 'rails', '3.2.22.5'
+#gem 'paperclip', '4.1'
+#gem 'devise', '~> 2.2.2'
 # XXX The following gems might be compromised as well.
-#gem 'rails', '~> 4.2', '>= 4.2.6' # XXX Used for development. 
+gem 'rails', '~> 4.2', '>= 4.2.6' # XXX Used for development. 
 #I wish you could use multiple rails versions in the same Gemfile.
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 3.2.5'
-#gem 'sass-rails' # XXX Used for development. 
+#gem 'sass-rails', '~> 3.2.5'
+gem 'sass-rails' # XXX Used for development. 
 #I wish you could use multiple rails versions in the same Gemfile.
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 3.2.2'
-#gem 'coffee-rails' # XXX Used for development. 
+#gem 'coffee-rails', '~> 3.2.2'
+gem 'coffee-rails' # XXX Used for development. 
 #I wish you could use multiple rails versions in the same Gemfile.
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

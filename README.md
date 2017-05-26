@@ -8,7 +8,6 @@ This repository plus the accompanying documentation can be used for developers w
 
 The following goals are the unofficial goals of the project. More goals may be added by contributors.
 1. Violates as many [bundler-audit](https://github.com/rubysec/bundler-audit) rules are possible.
-  * This should use as many insecure gems from the "common rails gems".
 2. Violates every warning under [brakeman](https://github.com/presidentbeef/brakeman) as possible.
 3. Violates as many suggestions under [rails_best_practices](https://rails-bestpractices.com/) as possible.
 

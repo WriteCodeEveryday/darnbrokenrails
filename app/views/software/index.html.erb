@@ -1,0 +1,13 @@
+<h2>Software List</h2>
+<script>
+  var attributes = <%= attrs.to_json %>
+  // XXX This code violates the "Cross Site Scripting (JSON)" portion of Brakeman.
+  //This section may cause a vulnerability if ActiveSupport is incorrectly configured.
+  //You may find the documentation relating to this below.
+  //Source: http://brakemanscanner.org/docs/warning_types/cross_site_scripting_to_json/
+</script>
+<%= content_tag :p, "User ID: #{params[:user_id]} @ #{timestamp}" %>
+<!-- XXX This code violates the "Cross Site Scripting (Content Tag)" portion of Brakeman.
+This section uses a dangerous parameter from the internet in a content call.
+You may find the documentation relating to this below.
+Source: http://brakemanscanner.org/docs/warning_types/content_tag/ -->

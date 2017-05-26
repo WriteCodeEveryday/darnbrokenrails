@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526142007) do
+ActiveRecord::Schema.define(version: 20170526184044) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20170526142007) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "verification_endpoint"
+    t.string   "license_key"
+    t.boolean  "cloud",                 default: false
+    t.string   "login_link"
   end
 
 end
