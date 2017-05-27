@@ -10,7 +10,6 @@ The following goals are the unofficial goals of the project. More goals may be a
 1. Violates as many [bundler-audit](https://github.com/rubysec/bundler-audit) CVEs as possible.
 2. Violates every warning under [brakeman](https://github.com/presidentbeef/brakeman) whenever possible.
 3. Violates as many suggestions under [rails_best_practices](https://rails-bestpractices.com/) as possible.
-  * These are not security suggestions, but just general "best practices" that should be followed.
 
 # Tutorials
 A tutorial section will be created in the wiki to show how to execute the tools and each example should have documentation linking back to the original source so the developers may use the available free tools to further their knowledge and write better Rails software. There is no reason to have insecure / non-functional software in the 21st century, at any level of any company. Any sort of software tools used within this project should be free, open source or have a trial, commercial software will be considered based on price.
