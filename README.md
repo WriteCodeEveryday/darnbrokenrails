@@ -23,6 +23,8 @@ The following contributors helped achieve this project's goals:
 # Pull Requests and Issues
 Pull requests are welcome with any changes, additions, new tooling or just any general feedback. Issues are also welcome; however, build issues will take low priority, since this project's dependencies are just too old to successfully build in some configurations and I don't have the resources to dedicate to fixing build issues at current time.
 
+I will not accept pull requests that fix the security issues. I will accept all pull requests that make this Rails application less secure (proper documentation is required).
+
 Be aware, you may have to manually increase your version of Rails beyond the set 3.2.22.5 in order to use fancy features like generators when making changes to the code.
 
 # License
